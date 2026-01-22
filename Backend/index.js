@@ -19,15 +19,19 @@ if (mongoConnectionString?.success) {
     cors({
       origin: "http://localhost:5173",
       credentials: true,
-    })
+    }),
   );
   app.use(router);
 
-  app.get("/", (req, res) => {
+  app.get("/", (req, res) =>
+  {
     res.send("server is running ");
   });
 
-  app.listen(port, () => {
+  app.listen(port, () =>
+  {
     console.log(`Server is running on port => ${port}`);
   });
-} else process.exit(1);
+}
+else process.exit(1);
+// credentials: true,

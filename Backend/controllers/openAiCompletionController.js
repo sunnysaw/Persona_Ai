@@ -10,6 +10,8 @@ if (!OPENAI_API_KEY) {
 const userPersona = async (req, res) => {
   try {
     const { userQueryMessage } = req.body;
+    console.log(userQueryMessage);
+    
     const userQuery = JSON.stringify(userQueryMessage);
     // console.log(req.cookies.token); // getting token form frontend for authentication
     
@@ -53,6 +55,7 @@ const userPersona = async (req, res) => {
 
     const queryResolverResult = await run(queryResolver, userQuery);
     const finalResult = queryResolverResult.finalOutput;
+    console.log(finalResult);
     
     return res.status(200).json({
       success: true,
